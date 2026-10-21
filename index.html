@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R.A. Dantes Lying-In Clinic | Paanakan 24 Hours</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome 6.4.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Tailwind config for brand colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'maternal': '#F472B6',
+            'maternal-dark': '#EC4899',
+            'health-blue': '#1D4ED8',
+            'health-blue-light': '#3B82F6',
+            'soft-yellow': '#FEF9C3',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth scrolling & subtle customizations */
+    html { scroll-behavior: smooth; }
+    body { background-color: #ffffff; }
+    /* QR modal animation */
+    .modal-overlay { animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .pass-card { animation: slideUp 0.25s ease-out; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+  <!-- ========== TOP BAR BANNER ========== -->
+  <div class="bg-health-blue text-white text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-regular fa-clock text-soft-yellow"></i> 24/7 OPEN
+        </span>
+        <span class="hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-soft-yellow"></i>
+          <a href="tel:+639612963542" class="hover:underline">0961-296-3542</a>
+        </span>
+        <span class="hidden md:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-soft-yellow"></i>
+          <a href="tel:+639321281549" class="hover:underline">0932-128-1549</a>
+        </span>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <i class="fa-solid fa-location-dot"></i> Km. 42.5 Highway Partida, Norzagaray, Bulacan
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== STICKY NAVBAR ========== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-md border-b border-pink-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Logo + Clinic Name -->
+        <a href="#" class="flex items-center gap-2 sm:gap-3">
+          <!-- Integrated Custom Logo Image -->
+          <img src="https://i.ibb.co/3k6q6qZ/logo.jpg" alt="R.A. Dantes Logo" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm border-2 border-maternal/30">
+          <div class="leading-tight">
+            <h1 class="text-base sm:text-xl font-bold text-gray-800 tracking-tight">R.A. Dantes <span class="text-maternal-dark">Lying-In</span></h1>
+            <p class="text-[10px] sm:text-xs text-health-blue font-semibold uppercase tracking-wider">Paanakan 24 Hours</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
+          <a href="#home" class="hover:text-maternal-dark transition-colors">Home</a>
+          <a href="#about" class="hover:text-maternal-dark transition-colors">About Us</a>
+          <a href="#services" class="hover:text-maternal-dark transition-colors">Services</a>
+          <a href="#promo" class="hover:text-maternal-dark transition-colors">Special Promo</a>
+          <a href="#appointment" class="hover:text-maternal-dark transition-colors">Appointment</a>
+          <a href="#location" class="hover:text-maternal-dark transition-colors">Location</a>
+        </nav>
+
+        <!-- CTA + Mobile Menu Button -->
+        <div class="flex items-center gap-2">
+          <a href="#appointment" class="hidden sm:inline-flex items-center gap-2 bg-maternal-dark hover:bg-maternal text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-md transition-all hover:shadow-lg">
+            <i class="fa-regular fa-calendar-check"></i> Mag-book ng Appointment
+          </a>
+          <button id="mobileMenuBtn" class="lg:hidden text-gray-700 hover:text-maternal-dark p-2 rounded-md focus:outline-none" aria-label="Open menu">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobileMenu" class="hidden lg:hidden pb-4 pt-1 border-t border-pink-100">
+        <nav class="flex flex-col gap-1 text-sm font-medium text-gray-700">
+          <a href="#home" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">Home</a>
+          <a href="#about" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">About Us</a>
+          <a href="#services" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">Services</a>
+          <a href="#promo" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">Special Promo</a>
+          <a href="#appointment" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">Appointment</a>
+          <a href="#location" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">Location</a>
+          <a href="#appointment" class="mt-2 inline-flex items-center justify-center gap-2 bg-maternal-dark text-white px-4 py-2.5 rounded-full text-sm font-semibold mobile-nav-link">
+            <i class="fa-regular fa-calendar-check"></i> Mag-book ng Appointment
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="home" class="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-blue-50/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <!-- Text Content -->
+        <div class="text-center lg:text-left">
+          <span class="inline-block bg-soft-yellow text-yellow-800 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-4 border border-yellow-200">
+            <i class="fa-solid fa-star text-yellow-500 mr-1"></i> Trusted Maternity Care in Norzagaray
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+            Safe Childbirth & <span class="text-maternal-dark">24-Hour</span> Maternity Care for Every Mother
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+            Compassionate care for every mother, healthy pregnancy... brighter tomorrow! 
+            Our lying-in clinic is open 24/7 with licensed midwives and complete prenatal to postnatal support.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="#appointment" class="inline-flex items-center justify-center gap-2 bg-maternal-dark hover:bg-maternal text-white font-semibold px-6 py-3.5 rounded-full shadow-lg transition-all hover:shadow-xl">
+              <i class="fa-solid fa-stethoscope"></i> Book Prenatal Check-Up
+            </a>
+            <a href="#promo" class="inline-flex items-center justify-center gap-2 bg-white border-2 border-maternal text-maternal-dark hover:bg-pink-50 font-semibold px-6 py-3.5 rounded-full shadow-sm transition-all">
+              <i class="fa-solid fa-tag"></i> Tingnan ang Promos
+            </a>
+          </div>
+          <!-- Trust Badges -->
+          <div class="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-gray-600">
+            <span class="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-full shadow-sm border border-pink-100">
+              <i class="fa-solid fa-user-nurse text-health-blue"></i> 24/7 Duty Midwives
+            </span>
+            <span class="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-full shadow-sm border border-pink-100">
+              <i class="fa-solid fa-peso-sign text-maternal-dark"></i> Affordable Rates
+            </span>
+            <span class="flex items-center gap-2 bg-white/70 px-3 py-2 rounded-full shadow-sm border border-pink-100">
+              <i class="fa-solid fa-hand-sparkles text-health-blue"></i> Clean & Safe Facility
+            </span>
+          </div>
+        </div>
+        <!-- Hero Visual (Using the Logo image as the main hero graphic) -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-2 border border-pink-100 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <!-- Main Hero Image -->
+            <img src="https://i.ibb.co/3k6q6qZ/logo.jpg" alt="Nurse holding a baby" class="w-full h-auto rounded-2xl object-cover">
+            
+            <!-- Overlay card for quick info -->
+            <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-pink-100 hidden sm:block">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-full bg-maternal/10 flex items-center justify-center text-maternal-dark text-lg">
+                  <i class="fa-solid fa-baby"></i>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800 text-sm">Paanakan 24 Hours</p>
+                  <p class="text-[10px] text-gray-500">Normal Spontaneous Delivery</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative circles -->
+          <div class="absolute -z-10 -top-6 -right-6 w-32 h-32 bg-maternal/20 rounded-full blur-2xl"></div>
+          <div class="absolute -z-10 -bottom-8 -left-8 w-40 h-40 bg-health-blue/10 rounded-full blur-2xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT US SECTION ========== -->
+  <section id="about" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-maternal-dark font-bold text-sm uppercase tracking-wider">About Us</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Committed to Quality Maternal Care in Norzagaray</h2>
+        <p class="mt-4 text-gray-600">
+          R.A. Dantes Lying-In Clinic has been a trusted partner for mothers in Bulacan, offering safe, affordable, and compassionate prenatal, delivery, and postnatal care. Our team of licensed midwives and healthcare professionals ensures that every mother and newborn receives the highest standard of care in a clean and nurturing environment.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div class="bg-gradient-to-br from-pink-50 to-white p-6 rounded-2xl border border-pink-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-maternal/20 flex items-center justify-center text-maternal-dark text-2xl mb-4">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Safety First</h3>
+          <p class="text-sm text-gray-600">We follow strict hygiene protocols and emergency preparedness to ensure the safety of every mother and child.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-health-blue/10 flex items-center justify-center text-health-blue text-2xl mb-4">
+            <i class="fa-solid fa-user-md"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Licensed Staff</h3>
+          <p class="text-sm text-gray-600">Our team consists of experienced, licensed midwives and healthcare professionals dedicated to your well-being.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="bg-gradient-to-br from-yellow-50 to-white p-6 rounded-2xl border border-yellow-200 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-soft-yellow flex items-center justify-center text-yellow-600 text-2xl mb-4">
+            <i class="fa-solid fa-truck-medical"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Emergency Ready</h3>
+          <p class="text-sm text-gray-600">Open 24/7 with rapid response protocols and coordination with nearby hospitals for high-risk cases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES SECTION ========== -->
+  <section id="services" class="py-16 sm:py-20 bg-gradient-to-b from-pink-50/40 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-health-blue font-bold text-sm uppercase tracking-wider">Our Services</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Complete Maternity Care Services</h2>
+        <p class="mt-4 text-gray-600">From prenatal check-ups to delivery and postnatal care, we provide comprehensive services for every stage of motherhood.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 rounded-full bg-maternal/10 flex items-center justify-center text-maternal-dark text-xl mb-4">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800">Prenatal Check-Up & Monitoring</h3>
+          <p class="text-sm text-gray-600 mt-2">Regular monitoring of mother and baby's health, including weight, blood pressure, and fetal development tracking.</p>
+        </div>
+        <!-- Service 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 rounded-full bg-health-blue/10 flex items-center justify-center text-health-blue text-xl mb-4">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800">24/7 Normal Spontaneous Delivery</h3>
+          <p class="text-sm text-gray-600">Safe and comfortable birthing experience with 24-hour midwife assistance and emergency support.</p>
+        </div>
+        <!-- Service 3 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 rounded-full bg-soft-yellow flex items-center justify-center text-yellow-600 text-xl mb-4">
+            <i class="fa-solid fa-wave-square"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800">Ultrasound Services</h3>
+          <p class="text-sm text-gray-600">TVS (Transvaginal), Pelvic Ultrasound, and BPS (Biophysical Profile) performed by trained professionals.</p>
+        </div>
+        <!-- Service 4 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-xl mb-4">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800">Postnatal Care & Family Planning</h3>
+          <p class="text-sm text-gray-600">Post-delivery check-ups, breastfeeding support, and family planning counseling for the mother's recovery.</p>
+        </div>
+        <!-- Service 5 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl mb-4">
+            <i class="fa-solid fa-syringe"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800">Newborn Screening & Immunization Advice</h3>
+          <p class="text-sm text-gray-600">Essential newborn screening tests and guidance on immunization schedules for your baby's health.</p>
+        </div>
+        <!-- Service 6 (extra visual) -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all flex flex-col justify-center items-center text-center bg-gradient-to-br from-pink-50 to-white border-maternal/20">
+          <i class="fa-solid fa-phone-volume text-3xl text-maternal-dark mb-3"></i>
+          <p class="font-bold text-gray-800">Need urgent help?</p>
+          <a href="tel:+639612963542" class="text-maternal-dark font-semibold text-lg mt-1">0961-296-3542</a>
+          <p class="text-xs text-gray-500 mt-1">Available 24/7</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPECIAL PROMO BANNER ========== -->
+  <section id="promo" class="py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-maternal-dark to-maternal text-white shadow-2xl">
+        <!-- Decorative circles -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+        <div class="absolute -bottom-12 -left-12 w-56 h-56 bg-white/10 rounded-full"></div>
+        <div class="relative p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="text-center lg:text-left">
+            <span class="inline-block bg-soft-yellow text-yellow-800 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+              <i class="fa-solid fa-bolt mr-1"></i> Limited Time Promo
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight">
+              Saan aabot ang ₱350 mo?
+            </h2>
+            <p class="text-lg sm:text-xl font-semibold mt-2 text-white/95">
+              Prenatal Check-Up with Free Ultrasound + Plus Lunch (Rice Meal)!
+            </p>
+            <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm">
+              <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full font-medium"><i class="fa-regular fa-circle-check mr-1"></i> TVS</span>
+              <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full font-medium"><i class="fa-regular fa-circle-check mr-1"></i> Pelvic</span>
+              <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full font-medium"><i class="fa-regular fa-circle-check mr-1"></i> BPS</span>
+            </div>
+          </div>
+          <a href="#appointment" class="flex-shrink-0 bg-white text-maternal-dark hover:bg-soft-yellow font-bold px-8 py-4 rounded-full shadow-lg transition-all text-base sm:text-lg inline-flex items-center gap-2">
+            <i class="fa-regular fa-calendar-check"></i> Avail Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== APPOINTMENT & QR CODE SYSTEM ========== -->
+  <section id="appointment" class="py-16 sm:py-20 bg-gradient-to-b from-blue-50/40 to-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-health-blue font-bold text-sm uppercase tracking-wider">Book an Appointment</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Reserve Your Visit</h2>
+        <p class="mt-3 text-gray-600">Fill out the form below and we'll generate your appointment pass with a QR code.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-8 lg:p-10">
+        <form id="appointmentForm" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <!-- Full Name -->
+          <div class="sm:col-span-2">
+            <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-1.5">Full Name <span class="text-maternal-dark">*</span></label>
+            <input type="text" id="fullName" name="fullName" required placeholder="Juanita Dela Cruz"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/30 outline-none transition-all text-sm">
+          </div>
+          <!-- Contact Number -->
+          <div>
+            <label for="contact" class="block text-sm font-semibold text-gray-700 mb-1.5">Contact Number <span class="text-maternal-dark">*</span></label>
+            <input type="tel" id="contact" name="contact" required placeholder="0917 123 4567"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/30 outline-none transition-all text-sm">
+          </div>
+          <!-- Service Needed -->
+          <div>
+            <label for="service" class="block text-sm font-semibold text-gray-700 mb-1.5">Service Needed <span class="text-maternal-dark">*</span></label>
+            <select id="service" name="service" required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/30 outline-none transition-all text-sm bg-white">
+              <option value="" disabled selected>Select a service</option>
+              <option value="Prenatal Check-Up">Prenatal Check-Up</option>
+              <option value="TVS Ultrasound">TVS Ultrasound</option>
+              <option value="Pelvic Ultrasound">Pelvic Ultrasound</option>
+              <option value="BPS Ultrasound">BPS Ultrasound</option>
+              <option value="Delivery Consultation">Delivery Consultation</option>
+            </select>
+          </div>
+          <!-- Preferred Date & Time -->
+          <div>
+            <label for="apptDate" class="block text-sm font-semibold text-gray-700 mb-1.5">Preferred Date & Time <span class="text-maternal-dark">*</span></label>
+            <input type="datetime-local" id="apptDate" name="apptDate" required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/30 outline-none transition-all text-sm text-gray-700">
+          </div>
+          <!-- Additional Notes -->
+          <div class="sm:col-span-2">
+            <label for="notes" class="block text-sm font-semibold text-gray-700 mb-1.5">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Any concerns or special requests..."
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/30 outline-none transition-all text-sm resize-none"></textarea>
+          </div>
+          <!-- Submit Button -->
+          <div class="sm:col-span-2 mt-2">
+            <button type="submit" class="w-full bg-maternal-dark hover:bg-maternal text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition-all hover:shadow-lg flex items-center justify-center gap-2">
+              <i class="fa-regular fa-paper-plane"></i> Generate Appointment Pass
+            </button>
+            <p class="text-xs text-gray-400 text-center mt-3"><i class="fa-solid fa-lock mr-1"></i> Your information is secure and used only for appointment scheduling.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LOCATION & CONTACT ========== -->
+  <section id="location" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="text-maternal-dark font-bold text-sm uppercase tracking-wider">Find Us</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Location & Contact</h2>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <!-- Contact Details -->
+        <div class="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-maternal-dark"></i> Visit Us
+          </h3>
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-maternal/10 flex items-center justify-center text-maternal-dark shrink-0">
+                <i class="fa-solid fa-map-pin"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800">Address</p>
+                <p class="text-sm text-gray-600">Km. 42.5 Highway Partida, Norzagaray, Bulacan <br><span class="text-xs text-gray-500">(Near Barangay Hall)</span></p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-health-blue/10 flex items-center justify-center text-health-blue shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800">Hotline Numbers</p>
+                <div class="flex flex-col sm:flex-row gap-2 mt-1">
+                  <a href="tel:+639612963542" class="inline-flex items-center gap-1.5 text-sm bg-white border border-gray-200 rounded-full px-3 py-1.5 hover:border-maternal hover:text-maternal-dark transition-colors">
+                    <i class="fa-solid fa-phone-volume text-maternal-dark"></i> 0961-296-3542
+                  </a>
+                  <a href="tel:+639321281549" class="inline-flex items-center gap-1.5 text-sm bg-white border border-gray-200 rounded-full px-3 py-1.5 hover:border-maternal hover:text-maternal-dark transition-colors">
+                    <i class="fa-solid fa-phone-volume text-maternal-dark"></i> 0932-128-1549
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-soft-yellow flex items-center justify-center text-yellow-600 shrink-0">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800">Operating Hours</p>
+                <p class="text-sm text-gray-600">Open 24/7 — Paanakan 24 Hours</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 p-4 bg-health-blue/5 rounded-xl border border-health-blue/10">
+            <p class="text-sm text-health-blue font-medium flex items-center gap-2">
+              <i class="fa-solid fa-circle-info"></i> Walk-ins welcome, but appointments are prioritized.
+            </p>
+          </div>
+        </div>
+        <!-- Google Map Iframe Placeholder -->
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-80 sm:h-96 lg:h-full min-h-[320px] bg-gray-100 relative">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.756066586091!2d121.0666!3d14.8666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0a1b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sNorzagaray%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1690000000000!5m2!1sen!2sph"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Clinic Location Map"
+            class="absolute inset-0 w-full h-full">
+          </iframe>
+          <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-semibold px-3 py-2 rounded-lg shadow flex items-center gap-1.5">
+            <i class="fa-solid fa-map-location-dot text-maternal-dark"></i> Partida, Norzagaray, Bulacan
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-gray-900 text-gray-300 pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <!-- Custom Logo in Footer -->
+            <img src="https://i.ibb.co/3k6q6qZ/logo.jpg" alt="R.A. Dantes Logo" class="w-9 h-9 rounded-full object-cover border-2 border-maternal/50">
+            <span class="text-white font-bold text-lg">R.A. Dantes</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">Compassionate Care for Every Mother | Healthy Pregnancy... Brighter Tomorrow!</p>
+          <div class="mt-4 flex gap-3">
+            <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-maternal-dark flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-maternal-dark flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-maternal-dark flex items-center justify-center transition-colors"><i class="fa-brands fa-tiktok text-sm"></i></a>
+          </div>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#home" class="hover:text-maternal transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-maternal transition-colors">About Us</a></li>
+            <li><a href="#services" class="hover:text-maternal transition-colors">Services</a></li>
+            <li><a href="#promo" class="hover:text-maternal transition-colors">Special Promo</a></li>
+            <li><a href="#appointment" class="hover:text-maternal transition-colors">Appointment</a></li>
+          </ul>
+        </div>
+        <!-- Emergency Contacts -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Emergency Contacts</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-maternal"></i> <a href="tel:+639612963542" class="hover:text-maternal">0961-296-3542</a></li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-maternal"></i> <a href="tel:+639321281549" class="hover:text-maternal">0932-128-1549</a></li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-maternal"></i> Km. 42.5 Highway Partida, Norzagaray</li>
+          </ul>
+        </div>
+        <!-- Clinic Hours -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Clinic Hours</h4>
+          <div class="bg-gray-800 rounded-xl p-4">
+            <p class="flex items-center gap-2 text-sm"><i class="fa-regular fa-clock text-soft-yellow"></i> <span class="text-white font-semibold">24/7 Open</span></p>
+            <p class="text-xs text-gray-400 mt-2">Paanakan 24 Hours — Walk-ins accepted anytime.</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+        <p>&copy; 2025 R.A. Dantes Lying-In Clinic. All rights reserved.</p>
+        <p>Made with <i class="fa-solid fa-heart text-maternal"></i> for mothers in Bulacan</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== APPOINTMENT PASS MODAL ========== -->
+  <div id="passModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modalOverlay"></div>
+    <!-- Modal Content -->
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-auto pass-card overflow-hidden">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-maternal-dark to-maternal p-5 text-white text-center relative">
+        <button id="closeModalBtn" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="w-12 h-12 rounded-full bg-white/20 mx-auto flex items-center justify-center mb-2 overflow-hidden border border-white/30">
+           <!-- Custom Logo in Modal Header -->
+           <img src="https://i.ibb.co/3k6q6qZ/logo.jpg" alt="Logo" class="w-full h-full object-cover">
+        </div>
+        <h3 class="text-lg font-bold">Patient Appointment Pass</h3>
+        <p class="text-xs text-white/80 mt-1">R.A. Dantes Lying-In Clinic</p>
+      </div>
+      <!-- Body -->
+      <div class="p-5 space-y-4">
+        <!-- QR Code -->
+        <div class="flex justify-center">
+          <img id="qrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=RA-DANTES-DEFAULT" alt="Appointment QR Code"
+            class="w-32 h-32 rounded-xl border-4 border-pink-100 shadow-sm">
+        </div>
+        <!-- Reference Code -->
+        <div class="bg-gray-50 rounded-xl p-3 text-center border border-gray-200">
+          <p class="text-xs text-gray-500 uppercase tracking-wider">Reference Code</p>
+          <p id="refCode" class="text-lg font-extrabold text-health-blue tracking-wider">RAD-000000</p>
+        </div>
+        <!-- Patient Details Summary -->
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+            <span class="text-gray-500">Name</span>
+            <span id="modalPatientName" class="font-semibold text-gray-800 text-right">—</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+            <span class="text-gray-500">Service</span>
+            <span id="modalService" class="font-semibold text-gray-800 text-right">—</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+            <span class="text-gray-500">Date & Time</span>
+            <span id="modalDateTime" class="font-semibold text-gray-800 text-right">—</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500">Contact</span>
+            <span id="modalContact" class="font-semibold text-gray-800 text-right">—</span>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex gap-2 pt-2">
+          <button id="printBtn" class="flex-1 bg-health-blue hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-print"></i> Print/Screenshot
+          </button>
+          <button id="doneBtn" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold py-2.5 rounded-xl transition-colors">Done</button>
+        </div>
+        <p class="text-[10px] text-gray-400 text-center leading-relaxed">Please present this pass upon arrival. For rescheduling, call 0961-296-3542.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== VANILLA JAVASCRIPT ========== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      mobileMenuBtn.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+        // Swap icon
+        const icon = mobileMenuBtn.querySelector('i');
+        if (mobileMenu.classList.contains('hidden')) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        } else {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      });
+
+      // Close mobile menu on link click
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        });
+      });
+
+      // Appointment Form & Modal Logic
+      const form = document.getElementById('appointmentForm');
+      const passModal = document.getElementById('passModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalOverlay = document.getElementById('modalOverlay');
+      const doneBtn = document.getElementById('doneBtn');
+      const printBtn = document.getElementById('printBtn');
+
+      // Elements to populate
+      const qrCodeImg = document.getElementById('qrCodeImg');
+      const refCodeEl = document.getElementById('refCode');
+      const modalPatientName = document.getElementById('modalPatientName');
+      const modalService = document.getElementById('modalService');
+      const modalDateTime = document.getElementById('modalDateTime');
+      const modalContact = document.getElementById('modalContact');
+
+      function openModal() {
+        passModal.classList.remove('hidden');
+        passModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        passModal.classList.add('hidden');
+        passModal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      // Close modal handlers
+      closeModalBtn.addEventListener('click', closeModal);
+      modalOverlay.addEventListener('click', closeModal);
+      doneBtn.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !passModal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+
+      // Print handler (triggers window print)
+      printBtn.addEventListener('click', function() {
+        window.print();
+      });
+
+      // Form submit
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const fullName = document.getElementById('fullName').value.trim();
+        const contact = document.getElementById('contact').value.trim();
+        const service = document.getElementById('service').value;
+        const apptDate = document.getElementById('apptDate').value;
+        const notes = document.getElementById('notes').value.trim();
+
+        // Basic validation (HTML required covers most)
+        if (!fullName || !contact || !service || !apptDate) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        // Format date & time for display
+        let formattedDateTime = '—';
+        if (apptDate) {
+          const dt = new Date(apptDate);
+          if (!isNaN(dt)) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            formattedDateTime = dt.toLocaleDateString('en-PH', options);
+          }
+        }
+
+        // Generate unique reference code: RAD-XXXXXX (random alphanumeric, uppercase)
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // omitted I,O,0,1 for clarity
+        let randomPart = '';
+        for (let i = 0; i < 6; i++) {
+          randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        const refCode = 'RAD-' + randomPart;
+
+        // Build QR data string (URL-encoded)
+        const qrData = `R.A. DANTES LYING-IN CLINIC|Ref:${refCode}|Patient:${fullName}|Service:${service}|Date:${formattedDateTime}|Contact:${contact}`;
+        const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+
+        // Populate modal
+        qrCodeImg.src = qrUrl;
+        refCodeEl.textContent = refCode;
+        modalPatientName.textContent = fullName;
+        modalService.textContent = service;
+        modalDateTime.textContent = formattedDateTime;
+        modalContact.textContent = contact;
+
+        // Show modal
+        openModal();
+
+        // Optional: log the appointment data
+        console.log('Appointment Booked:', { fullName, contact, service, apptDate, notes, refCode });
+
+        // Optionally, reset form after booking? We'll leave it, user can close.
+        // form.reset(); // uncomment if you want to clear after booking
+      });
+
+      // Pre-fill datetime to now (rounded to next hour) for convenience
+      const dtInput = document.getElementById('apptDate');
+      if (dtInput) {
+        const now = new Date();
+        now.setMinutes(0, 0, 0);
+        now.setHours(now.getHours() + 1);
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        dtInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+      }
+    });
+  </script>
+</body>
+</html>
