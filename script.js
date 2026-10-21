@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-  
-  // --- Mobile Menu Logic ---
+  // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-  mobileMenuBtn.addEventListener('click', function () {
-    mobileMenu.classList.toggle('hidden');
-    const icon = mobileMenuBtn.querySelector('i');
-    if (mobileMenu.classList.contains('hidden')) {
-      icon.classList.replace('fa-xmark', 'fa-bars');
-    } else {
-      icon.classList.replace('fa-bars', 'fa-xmark');
-    }
-  });
+  if(mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.replace('fa-xmark', 'fa-bars');
+      } else {
+        icon.classList.replace('fa-bars', 'fa-xmark');
+      }
+    });
+  }
 
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // --- Appointment & Modal Logic ---
+  // Appointment & Modal Logic
   const form = document.getElementById('appointmentForm');
   const passModal = document.getElementById('passModal');
   const closeModalBtn = document.getElementById('closeModalBtn');
@@ -43,50 +44,48 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = '';
   }
 
-  closeModalBtn.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', closeModal);
-  doneBtn.addEventListener('click', closeModal);
-  printBtn.addEventListener('click', () => window.print());
+  if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if(modalOverlay) modalOverlay.addEventListener('click', closeModal);
+  if(doneBtn) doneBtn.addEventListener('click', closeModal);
+  if(printBtn) printBtn.addEventListener('click', () => window.print());
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    const fullName = document.getElementById('fullName').value.trim();
-    const contact = document.getElementById('contact').value.trim();
-    const service = document.getElementById('service').value;
-    const apptDate = document.getElementById('apptDate').value;
+      const fullName = document.getElementById('fullName').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const service = document.getElementById('service').value;
+      const apptDate = document.getElementById('apptDate').value;
 
-    // Format Date
-    let formattedDateTime = '—';
-    if (apptDate) {
-      const dt = new Date(apptDate);
-      const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-      formattedDateTime = dt.toLocaleDateString('en-PH', options);
-    }
+      let formattedDateTime = '—';
+      if (apptDate) {
+        const dt = new Date(apptDate);
+        const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        formattedDateTime = dt.toLocaleDateString('en-PH', options);
+      }
 
-    // Generate Ref Code
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    let randomPart = '';
-    for (let i = 0; i < 6; i++) {
-      randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    const refCode = 'RAD-' + randomPart;
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let randomPart = '';
+      for (let i = 0; i < 6; i++) {
+        randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      const refCode = 'RAD-' + randomPart;
 
-    // Generate QR
-    const qrData = `R.A. DANTES CLINIC|Ref:${refCode}|Patient:${fullName}|Service:${service}|Date:${formattedDateTime}`;
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+      const qrData = `R.A. DANTES CLINIC|Ref:${refCode}|Patient:${fullName}|Service:${service}|Date:${formattedDateTime}`;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
 
-    // Populate Modal
-    document.getElementById('qrCodeImg').src = qrUrl;
-    document.getElementById('refCode').textContent = refCode;
-    document.getElementById('modalPatientName').textContent = fullName;
-    document.getElementById('modalService').textContent = service;
-    document.getElementById('modalDateTime').textContent = formattedDateTime;
+      document.getElementById('qrCodeImg').src = qrUrl;
+      document.getElementById('refCode').textContent = refCode;
+      document.getElementById('modalPatientName').textContent = fullName;
+      document.getElementById('modalService').textContent = service;
+      document.getElementById('modalDateTime').textContent = formattedDateTime;
 
-    openModal();
-  });
+      openModal();
+    });
+  }
 
-  // Set default date input to current time + 1 hour
+  // Set default date
   const dtInput = document.getElementById('apptDate');
   if (dtInput) {
     const now = new Date();
