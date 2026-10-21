@@ -30,7 +30,7 @@
 </head>
 <body class="font-sans antialiased text-gray-800 bg-white">
 
-  <!-- TOP BAR -->
+  <!-- ========== TOP BAR BANNER ========== -->
   <div class="bg-health-blue text-white text-sm py-2 px-4">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-4">
@@ -42,18 +42,21 @@
     </div>
   </div>
 
-  <!-- NAVBAR -->
+  <!-- ========== STICKY NAVBAR ========== -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-md border-b border-pink-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Logo -->
         <a href="#" class="flex items-center gap-2 sm:gap-3">
-          <img src="images/logo.jpg" alt="R.A. Dantes Logo" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm border-2 border-maternal/30">
+          <img src="image/logo.png" alt="R.A. Dantes Logo" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm border-2 border-maternal/30">
           <div class="leading-tight">
             <h1 class="text-base sm:text-xl font-bold text-gray-800 tracking-tight">R.A. Dantes <span class="text-maternal-dark">Lying-In</span></h1>
             <p class="text-[10px] sm:text-xs text-health-blue font-semibold uppercase tracking-wider">Paanakan 24 Hours</p>
           </div>
         </a>
 
+        <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
           <a href="#home" class="hover:text-maternal-dark transition-colors">Home</a>
           <a href="#about" class="hover:text-maternal-dark transition-colors">About Us</a>
@@ -63,6 +66,7 @@
           <a href="#location" class="hover:text-maternal-dark transition-colors">Location</a>
         </nav>
 
+        <!-- CTA & Mobile Toggle -->
         <div class="flex items-center gap-2">
           <a href="#appointment" class="hidden sm:inline-flex items-center gap-2 bg-maternal-dark hover:bg-maternal text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-md transition-all hover:shadow-lg">
             <i class="fa-regular fa-calendar-check"></i> Mag-book
@@ -73,7 +77,7 @@
         </div>
       </div>
 
-      <!-- Mobile Menu -->
+      <!-- Mobile Navigation Drawer -->
       <div id="mobileMenu" class="hidden lg:hidden pb-4 pt-1 border-t border-pink-100">
         <nav class="flex flex-col gap-1 text-sm font-medium text-gray-700">
           <a href="#home" class="mobile-nav-link px-3 py-2.5 rounded-lg hover:bg-pink-50 hover:text-maternal-dark">Home</a>
@@ -87,10 +91,11 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- ========== HERO SECTION ========== -->
   <section id="home" class="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-blue-50/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <!-- Text Content -->
         <div class="text-center lg:text-left">
           <span class="inline-block bg-soft-yellow text-yellow-800 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-4 border border-yellow-200">
             <i class="fa-solid fa-star text-yellow-500 mr-1"></i> Alagang Mommy, Alagang Baby!
@@ -110,19 +115,73 @@
             </a>
           </div>
         </div>
+        <!-- Hero Image -->
         <div class="relative flex justify-center lg:justify-end">
-            <!-- HERO SECTION IMAGE (Palitan ang logo.jpg ng logo.png) -->
-  <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-2 border border-pink-100 transform rotate-1 hover:rotate-0 transition-transform duration-300">
-    <img src="image/logo.png" alt="Nurse holding a baby" class="w-full h-auto rounded-2xl object-cover">
-  </div>
+          <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-2 border border-pink-100 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <img src="image/logo.png" alt="Nurse holding a baby" class="w-full h-auto rounded-2xl object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- ========================================== -->
-  <!-- PROMOS & GALLERY SECTION                   -->
-  <!-- ========================================== -->
+  <!-- ========== ABOUT US SECTION ========== -->
+  <section id="about" class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-maternal-dark font-bold text-sm uppercase tracking-wider">About Us</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Committed to Quality Maternal Care</h2>
+        <p class="mt-4 text-gray-600">R.A. Dantes Lying-In Clinic has been a trusted partner for mothers in Bulacan, offering safe, affordable, and compassionate care.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-pink-50 to-white p-6 rounded-2xl border border-pink-100 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-maternal/20 flex items-center justify-center text-maternal-dark text-2xl mb-4"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Safety First</h3>
+          <p class="text-sm text-gray-600">Strict hygiene protocols and emergency preparedness.</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-health-blue/10 flex items-center justify-center text-health-blue text-2xl mb-4"><i class="fa-solid fa-user-md"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Licensed Staff</h3>
+          <p class="text-sm text-gray-600">Experienced midwives and healthcare professionals.</p>
+        </div>
+        <div class="bg-gradient-to-br from-yellow-50 to-white p-6 rounded-2xl border border-yellow-200 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-soft-yellow flex items-center justify-center text-yellow-600 text-2xl mb-4"><i class="fa-solid fa-truck-medical"></i></div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Emergency Ready</h3>
+          <p class="text-sm text-gray-600">Open 24/7 with rapid response protocols.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES SECTION ========== -->
+  <section id="services" class="py-16 sm:py-20 bg-gradient-to-b from-pink-50/40 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-health-blue font-bold text-sm uppercase tracking-wider">Our Services</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Complete Maternity Care</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <h3 class="text-lg font-bold text-gray-800"><i class="fa-solid fa-heart-pulse text-maternal-dark mr-2"></i> Prenatal Check-Up</h3>
+          <p class="text-sm text-gray-600 mt-2">Regular monitoring of mother and baby's health.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <h3 class="text-lg font-bold text-gray-800"><i class="fa-solid fa-hospital text-health-blue mr-2"></i> 24/7 Delivery</h3>
+          <p class="text-sm text-gray-600">Safe and comfortable birthing experience.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <h3 class="text-lg font-bold text-gray-800"><i class="fa-solid fa-wave-square text-yellow-600 mr-2"></i> Ultrasound</h3>
+          <p class="text-sm text-gray-600">TVS, Pelvic, and BPS performed by professionals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROMOS & GALLERY SECTION ========== -->
   <section id="promo" class="py-16 sm:py-20 bg-pink-50/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Title -->
+      <!-- Title -->
       <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="inline-block bg-maternal-dark text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Mga Espesyal na Alok</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Promos & Freebies</h2>
@@ -168,9 +227,8 @@
         </div>
       </div>
 
-      <!-- Sub Promos (September Promo & Hiring) -->
+      <!-- Sub Promos -->
       <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <!-- September Promo -->
         <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group">
           <img src="image/poster-sept-promo.jpg" alt="September Promo" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="p-6 text-center">
@@ -179,7 +237,6 @@
           </div>
         </div>
         
-        <!-- Hiring Poster -->
         <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group relative">
           <div class="absolute top-4 right-4 bg-maternal-dark text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">We are Hiring!</div>
           <img src="image/poster-hiring.jpg" alt="Hiring" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
@@ -190,7 +247,7 @@
         </div>
       </div>
 
-      <!-- ACTUAL PHOTOS GALLERY (Inayos ang mga filename) -->
+      <!-- Gallery -->
       <div class="mt-20">
         <div class="text-center mb-10">
           <span class="text-maternal-dark font-bold text-sm uppercase tracking-wider">Success Stories</span>
@@ -198,60 +255,43 @@
           <p class="text-gray-500 mt-2">Sila ang mga nag-avail ng promo at nakatanggap ng aming freebies. Alagang R.A. Dantes!</p>
         </div>
 
-        <!-- Masonry-style Photo Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          
-          <!-- Photo 1 -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/photo-1.jpg" alt="Mommy with Freebies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-          
-          <!-- Photo 2 -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/photo-2.jpg" alt="Family with Baby and Bigas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-
-          <!-- Photo 3 -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/photo-3.jpg" alt="Couple with Baby" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-
-          <!-- Photo 4 -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/photo-4.jpg" alt="Parents with Freebies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-
-          <!-- Photo 5 -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/photo-5.jpg" alt="Mommy holding baby" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-
-          <!-- Photo 6 (Gamit ang freebies 4.jpg mo) -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/freebies 4.jpg" alt="Family with Christmas Bigas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-
-          <!-- Photo 7 (Gamit ang freebies 6.jpg mo) -->
           <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
             <img src="image/freebies 6.jpg" alt="Parents with Kleenfant bag" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           </div>
-
-          <!-- Call to Action Card -->
+          
+          <!-- CTA Card -->
           <div class="relative overflow-hidden rounded-2xl shadow-md bg-gradient-to-br from-maternal to-maternal-dark p-6 flex flex-col justify-center items-center text-center aspect-[3/4]">
             <i class="fa-solid fa-camera-retro text-5xl text-white/50 mb-4"></i>
             <h4 class="text-white font-bold text-xl mb-2">Pwede ka ring maging next!</h4>
             <p class="text-white/90 text-sm mb-6">Mag-book na ng appointment at i-claim ang iyong freebies.</p>
             <a href="#appointment" class="bg-white text-maternal-dark font-bold px-4 py-2 rounded-full text-sm hover:bg-soft-yellow transition-colors">Mag-book Dito</a>
           </div>
-
         </div>
       </div>
 
     </div>
   </section>
-  <!-- ========================================== -->
 
-  <!-- APPOINTMENT -->
+  <!-- ========== APPOINTMENT SECTION ========== -->
   <section id="appointment" class="py-16 sm:py-20 bg-gradient-to-b from-blue-50/40 to-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
@@ -294,10 +334,11 @@
     </div>
   </section>
 
-  <!-- LOCATION -->
+  <!-- ========== LOCATION & CONTACT ========== -->
   <section id="location" class="py-16 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <!-- Contact Info -->
         <div class="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm">
           <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2"><i class="fa-solid fa-location-dot text-maternal-dark"></i> Visit Us</h3>
           <div class="space-y-5">
@@ -309,6 +350,7 @@
             <p class="text-sm text-gray-600"><i class="fa-regular fa-clock text-maternal-dark"></i> Open 24/7 — Paanakan 24 Hours</p>
           </div>
         </div>
+        <!-- Google Map -->
         <div class="rounded-3xl overflow-hidden shadow-xl border h-80 bg-gray-100 relative">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.756066586091!2d121.0666!3d14.8666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0a1b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sNorzagaray%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1690000000000!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
@@ -316,16 +358,16 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ========== FOOTER ========== -->
   <footer class="bg-gray-900 text-gray-300 pt-14 pb-8">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <img src="images/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full mx-auto mb-4 border-2 border-maternal">
+      <img src="image/logo.png" alt="Logo" class="w-12 h-12 rounded-full mx-auto mb-4 border-2 border-maternal">
       <p class="text-sm text-gray-400">Compassionate Care for Every Mother | Healthy Pregnancy... Brighter Tomorrow!</p>
       <p class="text-xs text-gray-500 mt-6">&copy; 2025 R.A. Dantes Lying-In Clinic. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- MODAL (Appointment Pass) -->
+  <!-- ========== APPOINTMENT PASS MODAL ========== -->
   <div id="passModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modalOverlay"></div>
     <div class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-auto pass-card overflow-hidden">
