@@ -9,6 +9,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
   
@@ -28,10 +32,10 @@
     }
   </script>
 </head>
-<body class="font-sans antialiased text-gray-800 bg-white">
+<body class="font-sans antialiased text-gray-800 bg-white overflow-x-hidden">
 
   <!-- ========== TOP BAR BANNER ========== -->
-  <div class="bg-health-blue text-white text-sm py-2 px-4">
+  <div class="bg-health-blue text-white text-sm py-2 px-4 relative z-50">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-4">
         <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-soft-yellow"></i> 24/7 OPEN</span>
@@ -48,8 +52,8 @@
       <div class="flex items-center justify-between h-16 sm:h-20">
         
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-2 sm:gap-3">
-          <img src="image/logo.png" alt="R.A. Dantes Logo" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm border-2 border-maternal/30">
+        <a href="#" class="flex items-center gap-2 sm:gap-3 group">
+          <img src="image/logo.png" alt="R.A. Dantes Logo" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm border-2 border-maternal/30 group-hover:scale-110 transition-transform duration-300">
           <div class="leading-tight">
             <h1 class="text-base sm:text-xl font-bold text-gray-800 tracking-tight">R.A. Dantes <span class="text-maternal-dark">Lying-In</span></h1>
             <p class="text-[10px] sm:text-xs text-health-blue font-semibold uppercase tracking-wider">Paanakan 24 Hours</p>
@@ -58,17 +62,17 @@
 
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-700">
-          <a href="#home" class="hover:text-maternal-dark transition-colors">Home</a>
-          <a href="#about" class="hover:text-maternal-dark transition-colors">About Us</a>
-          <a href="#services" class="hover:text-maternal-dark transition-colors">Services</a>
-          <a href="#promo" class="hover:text-maternal-dark transition-colors">Promos & Gallery</a>
-          <a href="#appointment" class="hover:text-maternal-dark transition-colors">Appointment</a>
-          <a href="#location" class="hover:text-maternal-dark transition-colors">Location</a>
+          <a href="#home" class="hover:text-maternal-dark transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-maternal-dark hover:after:w-full after:transition-all after:duration-300">Home</a>
+          <a href="#about" class="hover:text-maternal-dark transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-maternal-dark hover:after:w-full after:transition-all after:duration-300">About Us</a>
+          <a href="#services" class="hover:text-maternal-dark transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-maternal-dark hover:after:w-full after:transition-all after:duration-300">Services</a>
+          <a href="#promo" class="hover:text-maternal-dark transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-maternal-dark hover:after:w-full after:transition-all after:duration-300">Promos & Gallery</a>
+          <a href="#appointment" class="hover:text-maternal-dark transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-maternal-dark hover:after:w-full after:transition-all after:duration-300">Appointment</a>
+          <a href="#location" class="hover:text-maternal-dark transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-maternal-dark hover:after:w-full after:transition-all after:duration-300">Location</a>
         </nav>
 
         <!-- CTA & Mobile Toggle -->
         <div class="flex items-center gap-2">
-          <a href="#appointment" class="hidden sm:inline-flex items-center gap-2 bg-maternal-dark hover:bg-maternal text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-md transition-all hover:shadow-lg">
+          <a href="#appointment" class="hidden sm:inline-flex items-center gap-2 bg-maternal-dark hover:bg-maternal text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
             <i class="fa-regular fa-calendar-check"></i> Mag-book
           </a>
           <button id="mobileMenuBtn" class="lg:hidden text-gray-700 hover:text-maternal-dark p-2 rounded-md focus:outline-none">
@@ -96,8 +100,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <!-- Text Content -->
-        <div class="text-center lg:text-left">
-          <span class="inline-block bg-soft-yellow text-yellow-800 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-4 border border-yellow-200">
+        <div class="text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+          <span class="inline-block bg-soft-yellow text-yellow-800 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-4 border border-yellow-200 shadow-sm animate-pulse">
             <i class="fa-solid fa-star text-yellow-500 mr-1"></i> Alagang Mommy, Alagang Baby!
           </span>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900">
@@ -107,18 +111,22 @@
             Compassionate care for every mother, healthy pregnancy... brighter tomorrow! Open 24/7 with licensed midwives and complete prenatal to postnatal support.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-            <a href="#appointment" class="inline-flex items-center justify-center gap-2 bg-maternal-dark hover:bg-maternal text-white font-semibold px-6 py-3.5 rounded-full shadow-lg transition-all hover:shadow-xl">
+            <a href="#appointment" class="inline-flex items-center justify-center gap-2 bg-maternal-dark hover:bg-maternal text-white font-semibold px-6 py-3.5 rounded-full shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
               <i class="fa-solid fa-stethoscope"></i> Book Prenatal Check-Up
             </a>
-            <a href="#promo" class="inline-flex items-center justify-center gap-2 bg-white border-2 border-maternal text-maternal-dark hover:bg-pink-50 font-semibold px-6 py-3.5 rounded-full shadow-sm transition-all">
+            <a href="#promo" class="inline-flex items-center justify-center gap-2 bg-white border-2 border-maternal text-maternal-dark hover:bg-pink-50 font-semibold px-6 py-3.5 rounded-full shadow-sm transition-all hover:-translate-y-1">
               <i class="fa-solid fa-tag"></i> Tingnan ang Promos
             </a>
           </div>
         </div>
-        <!-- Hero Image -->
-        <div class="relative flex justify-center lg:justify-end">
-          <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-2 border border-pink-100 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+        <!-- Hero Image (May floating animation) -->
+        <div class="relative flex justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-2 border border-pink-100 animate-float">
             <img src="image/logo.png" alt="Nurse holding a baby" class="w-full h-auto rounded-2xl object-cover">
+            <!-- Decorative elements -->
+            <div class="absolute -top-4 -right-4 bg-white p-3 rounded-full shadow-lg text-maternal-dark animate-bounce">
+              <i class="fa-solid fa-heart text-xl"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -128,23 +136,24 @@
   <!-- ========== ABOUT US SECTION ========== -->
   <section id="about" class="py-16 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
         <span class="text-maternal-dark font-bold text-sm uppercase tracking-wider">About Us</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Committed to Quality Maternal Care</h2>
         <p class="mt-4 text-gray-600">R.A. Dantes Lying-In Clinic has been a trusted partner for mothers in Bulacan, offering safe, affordable, and compassionate care.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-gradient-to-br from-pink-50 to-white p-6 rounded-2xl border border-pink-100 shadow-sm">
+        <!-- Cards with stagger effect -->
+        <div class="hover-card bg-gradient-to-br from-pink-50 to-white p-6 rounded-2xl border border-pink-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
           <div class="w-12 h-12 rounded-xl bg-maternal/20 flex items-center justify-center text-maternal-dark text-2xl mb-4"><i class="fa-solid fa-shield-heart"></i></div>
           <h3 class="text-lg font-bold text-gray-800 mb-2">Safety First</h3>
           <p class="text-sm text-gray-600">Strict hygiene protocols and emergency preparedness.</p>
         </div>
-        <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 shadow-sm">
+        <div class="hover-card bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
           <div class="w-12 h-12 rounded-xl bg-health-blue/10 flex items-center justify-center text-health-blue text-2xl mb-4"><i class="fa-solid fa-user-md"></i></div>
           <h3 class="text-lg font-bold text-gray-800 mb-2">Licensed Staff</h3>
           <p class="text-sm text-gray-600">Experienced midwives and healthcare professionals.</p>
         </div>
-        <div class="bg-gradient-to-br from-yellow-50 to-white p-6 rounded-2xl border border-yellow-200 shadow-sm">
+        <div class="hover-card bg-gradient-to-br from-yellow-50 to-white p-6 rounded-2xl border border-yellow-200 shadow-sm" data-aos="fade-up" data-aos-delay="300">
           <div class="w-12 h-12 rounded-xl bg-soft-yellow flex items-center justify-center text-yellow-600 text-2xl mb-4"><i class="fa-solid fa-truck-medical"></i></div>
           <h3 class="text-lg font-bold text-gray-800 mb-2">Emergency Ready</h3>
           <p class="text-sm text-gray-600">Open 24/7 with rapid response protocols.</p>
@@ -156,20 +165,20 @@
   <!-- ========== SERVICES SECTION ========== -->
   <section id="services" class="py-16 sm:py-20 bg-gradient-to-b from-pink-50/40 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
         <span class="text-health-blue font-bold text-sm uppercase tracking-wider">Our Services</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Complete Maternity Care</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="hover-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="zoom-in" data-aos-delay="100">
           <h3 class="text-lg font-bold text-gray-800"><i class="fa-solid fa-heart-pulse text-maternal-dark mr-2"></i> Prenatal Check-Up</h3>
           <p class="text-sm text-gray-600 mt-2">Regular monitoring of mother and baby's health.</p>
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="hover-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="zoom-in" data-aos-delay="200">
           <h3 class="text-lg font-bold text-gray-800"><i class="fa-solid fa-hospital text-health-blue mr-2"></i> 24/7 Delivery</h3>
           <p class="text-sm text-gray-600">Safe and comfortable birthing experience.</p>
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="hover-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100" data-aos="zoom-in" data-aos-delay="300">
           <h3 class="text-lg font-bold text-gray-800"><i class="fa-solid fa-wave-square text-yellow-600 mr-2"></i> Ultrasound</h3>
           <p class="text-sm text-gray-600">TVS, Pelvic, and BPS performed by professionals.</p>
         </div>
@@ -182,17 +191,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Title -->
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
         <span class="inline-block bg-maternal-dark text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Mga Espesyal na Alok</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Promos & Freebies</h2>
         <p class="mt-3 text-gray-600">Huwag palampasin ang aming mga limited-time offers para sa mga mommies at babies!</p>
       </div>
 
       <!-- Main Poster (Libreng Paanakan) -->
-      <div class="mb-12">
+      <div class="mb-12" data-aos="fade-up" data-aos-duration="1000">
         <div class="grid lg:grid-cols-2 gap-8 items-center bg-white rounded-3xl shadow-xl overflow-hidden border border-pink-100">
-          <div class="h-full">
-            <img src="image/poster-free-paanak.jpg" alt="Libreng Paanakan Promo" class="w-full h-full object-cover">
+          <div class="h-full overflow-hidden">
+            <img src="image/poster-free-paanak.jpg" alt="Libreng Paanakan Promo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
           </div>
           <div class="p-8 lg:p-12">
             <h3 class="text-2xl sm:text-3xl font-extrabold text-health-blue mb-4">Libreng Paanakan</h3>
@@ -220,7 +229,7 @@
                 </div>
               </li>
             </ul>
-            <a href="#appointment" class="inline-flex items-center gap-2 bg-health-blue hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-full transition-all">
+            <a href="#appointment" class="inline-flex items-center gap-2 bg-health-blue hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-1 hover:shadow-lg">
               <i class="fa-regular fa-calendar-check"></i> Mag-book Ngayon
             </a>
           </div>
@@ -229,7 +238,7 @@
 
       <!-- Sub Promos -->
       <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group">
+        <div class="hover-card bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group" data-aos="fade-right">
           <img src="image/poster-sept-promo.jpg" alt="September Promo" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="p-6 text-center">
             <h4 class="text-xl font-bold text-maternal-dark mb-2">September Promo</h4>
@@ -237,8 +246,8 @@
           </div>
         </div>
         
-        <div class="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group relative">
-          <div class="absolute top-4 right-4 bg-maternal-dark text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">We are Hiring!</div>
+        <div class="hover-card bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden group relative" data-aos="fade-left">
+          <div class="absolute top-4 right-4 bg-maternal-dark text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse shadow-md">We are Hiring!</div>
           <img src="image/poster-hiring.jpg" alt="Hiring" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="p-6 text-center">
             <h4 class="text-xl font-bold text-health-blue mb-2">Join Our Team</h4>
@@ -249,41 +258,41 @@
 
       <!-- Gallery -->
       <div class="mt-20">
-        <div class="text-center mb-10">
+        <div class="text-center mb-10" data-aos="fade-up">
           <span class="text-maternal-dark font-bold text-sm uppercase tracking-wider">Success Stories</span>
           <h3 class="text-3xl font-extrabold text-gray-900 mt-2">Mga Maswerteng Mommy Natin!</h3>
           <p class="text-gray-500 mt-2">Sila ang mga nag-avail ng promo at nakatanggap ng aming freebies. Alagang R.A. Dantes!</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/photo-1.jpg" alt="Mommy with Freebies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="100">
+            <img src="image/photo-1.jpg" alt="Mommy with Freebies" class="w-full h-full object-cover">
           </div>
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/photo-2.jpg" alt="Family with Baby and Bigas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="200">
+            <img src="image/photo-2.jpg" alt="Family with Baby and Bigas" class="w-full h-full object-cover">
           </div>
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/photo-3.jpg" alt="Couple with Baby" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="300">
+            <img src="image/photo-3.jpg" alt="Couple with Baby" class="w-full h-full object-cover">
           </div>
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/photo-4.jpg" alt="Parents with Freebies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="400">
+            <img src="image/photo-4.jpg" alt="Parents with Freebies" class="w-full h-full object-cover">
           </div>
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/photo-5.jpg" alt="Mommy holding baby" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="100">
+            <img src="image/photo-5.jpg" alt="Mommy holding baby" class="w-full h-full object-cover">
           </div>
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/freebies 4.jpg" alt="Family with Christmas Bigas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="200">
+            <img src="image/freebies 4.jpg" alt="Family with Christmas Bigas" class="w-full h-full object-cover">
           </div>
-          <div class="relative group overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]">
-            <img src="image/freebies 6.jpg" alt="Parents with Kleenfant bag" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="gallery-item relative overflow-hidden rounded-2xl shadow-md bg-gray-100 aspect-[3/4]" data-aos="zoom-in" data-aos-delay="300">
+            <img src="image/freebies 6.jpg" alt="Parents with Kleenfant bag" class="w-full h-full object-cover">
           </div>
           
           <!-- CTA Card -->
-          <div class="relative overflow-hidden rounded-2xl shadow-md bg-gradient-to-br from-maternal to-maternal-dark p-6 flex flex-col justify-center items-center text-center aspect-[3/4]">
-            <i class="fa-solid fa-camera-retro text-5xl text-white/50 mb-4"></i>
+          <div class="relative overflow-hidden rounded-2xl shadow-md bg-gradient-to-br from-maternal to-maternal-dark p-6 flex flex-col justify-center items-center text-center aspect-[3/4]" data-aos="zoom-in" data-aos-delay="400">
+            <i class="fa-solid fa-camera-retro text-5xl text-white/50 mb-4 animate-bounce"></i>
             <h4 class="text-white font-bold text-xl mb-2">Pwede ka ring maging next!</h4>
             <p class="text-white/90 text-sm mb-6">Mag-book na ng appointment at i-claim ang iyong freebies.</p>
-            <a href="#appointment" class="bg-white text-maternal-dark font-bold px-4 py-2 rounded-full text-sm hover:bg-soft-yellow transition-colors">Mag-book Dito</a>
+            <a href="#appointment" class="bg-white text-maternal-dark font-bold px-4 py-2 rounded-full text-sm hover:bg-soft-yellow transition-all hover:scale-105 shadow-md">Mag-book Dito</a>
           </div>
         </div>
       </div>
@@ -294,24 +303,24 @@
   <!-- ========== APPOINTMENT SECTION ========== -->
   <section id="appointment" class="py-16 sm:py-20 bg-gradient-to-b from-blue-50/40 to-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
+      <div class="text-center mb-10" data-aos="fade-up">
         <span class="text-health-blue font-bold text-sm uppercase tracking-wider">Book an Appointment</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Reserve Your Visit</h2>
       </div>
 
-      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-8 lg:p-10">
+      <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-8 lg:p-10" data-aos="fade-up" data-aos-delay="200">
         <form id="appointmentForm" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div class="sm:col-span-2">
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Full Name <span class="text-maternal-dark">*</span></label>
-            <input type="text" id="fullName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal outline-none text-sm">
+            <input type="text" id="fullName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/20 outline-none transition-all text-sm">
           </div>
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Contact Number <span class="text-maternal-dark">*</span></label>
-            <input type="tel" id="contact" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal outline-none text-sm">
+            <input type="tel" id="contact" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/20 outline-none transition-all text-sm">
           </div>
           <div>
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Service Needed <span class="text-maternal-dark">*</span></label>
-            <select id="service" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal outline-none text-sm bg-white">
+            <select id="service" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/20 outline-none transition-all text-sm bg-white">
               <option value="" disabled selected>Select a service</option>
               <option value="Prenatal Check-Up">Prenatal Check-Up</option>
               <option value="TVS Ultrasound">TVS Ultrasound</option>
@@ -322,10 +331,10 @@
           </div>
           <div class="sm:col-span-2">
             <label class="block text-sm font-semibold text-gray-700 mb-1.5">Preferred Date & Time <span class="text-maternal-dark">*</span></label>
-            <input type="datetime-local" id="apptDate" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal outline-none text-sm">
+            <input type="datetime-local" id="apptDate" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-maternal focus:ring-2 focus:ring-maternal/20 outline-none transition-all text-sm">
           </div>
           <div class="sm:col-span-2 mt-2">
-            <button type="submit" class="w-full bg-maternal-dark hover:bg-maternal text-white font-bold py-3.5 px-6 rounded-xl shadow-md flex justify-center gap-2">
+            <button type="submit" class="w-full bg-maternal-dark hover:bg-maternal text-white font-bold py-3.5 px-6 rounded-xl shadow-md flex justify-center gap-2 transition-all hover:-translate-y-0.5 hover:shadow-lg">
               <i class="fa-regular fa-paper-plane"></i> Generate Appointment Pass
             </button>
           </div>
@@ -339,28 +348,26 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-8 items-start">
         <!-- Contact Info -->
-        <div class="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm">
+        <div class="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm" data-aos="fade-right">
           <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2"><i class="fa-solid fa-location-dot text-maternal-dark"></i> Visit Us</h3>
           <div class="space-y-5">
             <p class="text-sm text-gray-600">Km. 42.5 Highway Partida, Norzagaray, Bulacan <br><span class="text-xs text-gray-500">(Near Barangay Hall)</span></p>
             <div class="flex gap-2">
-              <a href="tel:+639612963542" class="text-sm bg-white border rounded-full px-3 py-1.5 hover:text-maternal-dark"><i class="fa-solid fa-phone text-maternal-dark"></i> 0961-296-3542</a>
-              <a href="tel:+639321281549" class="text-sm bg-white border rounded-full px-3 py-1.5 hover:text-maternal-dark"><i class="fa-solid fa-phone text-maternal-dark"></i> 0932-128-1549</a>
+              <a href="tel:+639612963542" class="text-sm bg-white border rounded-full px-3 py-1.5 hover:text-maternal-dark hover:shadow-sm transition-all"><i class="fa-solid fa-phone text-maternal-dark"></i> 0961-296-3542</a>
+              <a href="tel:+639321281549" class="text-sm bg-white border rounded-full px-3 py-1.5 hover:text-maternal-dark hover:shadow-sm transition-all"><i class="fa-solid fa-phone text-maternal-dark"></i> 0932-128-1549</a>
             </div>
             <p class="text-sm text-gray-600"><i class="fa-regular fa-clock text-maternal-dark"></i> Open 24/7 — Paanakan 24 Hours</p>
           </div>
         </div>
         <!-- Google Map -->
-        <div class="rounded-3xl overflow-hidden shadow-xl border h-80 bg-gray-100 relative">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.756066586091!2d121.0666!3d14.8666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0a1b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sNorzagaray%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1690000000000!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="rounded-3xl overflow-hidden shadow-xl border h-80 bg-gray-100 relative" data-aos="fade-left">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.756066586091!2d121.0666!3d14.8666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0a1b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sNorzagaray%2C%20Bulacan!5e0!3m2!1sen!2sph!4v1690000000000!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" class="hover:grayscale-0 transition-all duration-500"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================== -->
-  <!-- UPDATED PROFESSIONAL FOOTER SECTION        -->
-  <!-- ========================================== -->
+  <!-- ========== PROFESSIONAL FOOTER ========== -->
   <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t-4 border-maternal-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -368,7 +375,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         
         <!-- Column 1: Brand & Logo -->
-        <div class="space-y-4">
+        <div class="space-y-4" data-aos="fade-up">
           <div class="flex items-center gap-3">
             <img src="image/logo.png" alt="Logo" class="w-12 h-12 rounded-full object-cover border-2 border-maternal">
             <div>
@@ -385,7 +392,7 @@
         </div>
 
         <!-- Column 2: Quick Links -->
-        <div>
+        <div data-aos="fade-up" data-aos-delay="100">
           <h4 class="text-white font-bold text-lg mb-5">Quick Links</h4>
           <ul class="space-y-3 text-sm">
             <li><a href="#home" class="hover:text-maternal transition-colors flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-maternal-dark"></i> Home</a></li>
@@ -397,7 +404,7 @@
         </div>
 
         <!-- Column 3: Contact & Location -->
-        <div>
+        <div data-aos="fade-up" data-aos-delay="200">
           <h4 class="text-white font-bold text-lg mb-5">Contact Us</h4>
           <ul class="space-y-4 text-sm">
             <li class="flex items-start gap-3">
@@ -419,13 +426,13 @@
         </div>
 
         <!-- Column 4: Social Media & Connect -->
-        <div>
+        <div data-aos="fade-up" data-aos-delay="300">
           <h4 class="text-white font-bold text-lg mb-5">Connect With Us</h4>
           <p class="text-sm text-gray-400 mb-4">I-follow kami sa aming social media pages para sa mga update at promos.</p>
           
           <div class="flex flex-col gap-3">
             <!-- Facebook -->
-            <a href="https://www.facebook.com/RALYINGINCLINIC" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-gray-800 hover:bg-blue-600 p-3 rounded-xl transition-all group">
+            <a href="https://www.facebook.com/RALYINGINCLINIC" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-gray-800 hover:bg-blue-600 p-3 rounded-xl transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg">
               <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                 <i class="fa-brands fa-facebook-f text-blue-500 group-hover:text-white"></i>
               </div>
@@ -436,7 +443,7 @@
             </a>
             
             <!-- TikTok -->
-            <a href="https://www.tiktok.com/@komadronarsrachelle" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-gray-800 hover:bg-black p-3 rounded-xl transition-all group">
+            <a href="https://www.tiktok.com/@komadronarsrachelle" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-gray-800 hover:bg-black p-3 rounded-xl transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg">
               <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                 <i class="fa-brands fa-tiktok text-white"></i>
               </div>
@@ -460,14 +467,13 @@
       
     </div>
   </footer>
-  <!-- ========================================== -->
 
   <!-- ========== APPOINTMENT PASS MODAL ========== -->
   <div id="passModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modalOverlay"></div>
     <div class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-auto pass-card overflow-hidden">
       <div class="bg-gradient-to-r from-maternal-dark to-maternal p-5 text-white text-center relative">
-        <button id="closeModalBtn" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+        <button id="closeModalBtn" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"><i class="fa-solid fa-xmark"></i></button>
         <h3 class="text-lg font-bold">Patient Appointment Pass</h3>
         <p class="text-xs text-white/80 mt-1">R.A. Dantes Lying-In Clinic</p>
       </div>
@@ -483,19 +489,30 @@
           <p class="flex justify-between border-b pb-1"><span class="text-gray-500">Date:</span> <span id="modalDateTime" class="font-semibold text-gray-800"></span></p>
         </div>
         <div class="flex gap-2 pt-2">
-          <button id="printBtn" class="flex-1 bg-health-blue text-white text-sm font-semibold py-2.5 rounded-xl"><i class="fa-solid fa-print"></i> Print</button>
-          <button id="doneBtn" class="flex-1 bg-gray-100 text-gray-700 text-sm font-semibold py-2.5 rounded-xl">Done</button>
+          <button id="printBtn" class="flex-1 bg-health-blue hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors"><i class="fa-solid fa-print"></i> Print</button>
+          <button id="doneBtn" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold py-2.5 rounded-xl transition-colors">Done</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Custom JS -->
-  <script src="script.js"></script>
+  <!-- AOS JS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   
-  <!-- Script para awtomatikong mag-update ang taon sa footer -->
+  <!-- Initialize AOS & Custom Scripts -->
   <script>
+    // Initialize Animation on Scroll
+    AOS.init({
+      once: true, // Ang animation ay mangyayari lang isang beses
+      offset: 50, // Mag-trigger ang animation pagkalipas ng 50px scroll
+      duration: 800, // Default na tagal ng animation (0.8 seconds)
+    });
+
+    // Dynamic Year for Footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <!-- Custom JS (Form & Menu Logic) -->
+  <script src="script.js"></script>
 </body>
 </html>
